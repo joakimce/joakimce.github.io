@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joakim Coleman Ebeltoft</title>
+<meta name="description" content="Joakim Coleman Ebeltoft – researcher at the University of Oslo working on wealth, inequality, genetics and mental health across generations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1d1f22;
+    --muted: #5d6168;
+    --line: #e6e2da;
+    --accent: #1f5f5b;
+    --accent-soft: #e4efed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141618;
+      --surface: #1b1e21;
+      --text: #e9e7e2;
+      --muted: #a2a6ac;
+      --line: #2c3035;
+      --accent: #7cc4bc;
+      --accent-soft: #1f2e2d;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 Inter, system-ui, -apple-system, sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; gap: 16px; }
+  nav .brand { font-weight: 600; color: var(--text); white-space: nowrap; }
+  nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; font-size: 14px; }
+  nav ul a { color: var(--muted); }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  header.hero { padding: 72px 0 48px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+  .hero h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600; font-size: 44px; line-height: 1.1; margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .hero .role { color: var(--muted); margin: 0 0 20px; font-size: 17px; }
+  .hero p.lead { font-size: 18px; margin: 0 0 24px; max-width: 34em; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a {
+    font-size: 14px; font-weight: 500;
+    padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px;
+    color: var(--text); background: var(--surface);
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .portrait { margin: 0; text-align: center; }
+  .portrait figcaption { font-size: 11px; color: var(--muted); margin-top: 6px; }
+  .photo {
+    width: 168px; height: 168px; border-radius: 50%;
+    background: var(--accent-soft); border: 1px solid var(--line);
+    display: grid; place-items: center;
+    font-family: "Source Serif 4", Georgia, serif; font-size: 48px; color: var(--accent);
+    object-fit: cover;
+  }
+
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600; font-size: 26px; margin: 0 0 20px;
+  }
+  h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 28px 0 12px; font-weight: 600; }
+
+  .themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .theme { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  .theme strong { display: block; margin-bottom: 6px; }
+  .theme span { color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+  ol.pubs { list-style: none; padding: 0; margin: 0; }
+  ol.pubs li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  ol.pubs li:last-child { border-bottom: 0; }
+  .pub-title { font-weight: 600; display: block; margin-bottom: 2px; }
+  .pub-meta { color: var(--muted); font-size: 14px; }
+  .pub-meta em { color: var(--text); }
+  .me { color: var(--text); font-weight: 600; }
+  .tag {
+    display: inline-block; font-size: 12px; font-weight: 600;
+    background: var(--accent-soft); color: var(--accent);
+    padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 1px;
+  }
+
+  dl.cv { display: grid; grid-template-columns: 110px 1fr; gap: 10px 20px; margin: 0; }
+  dl.cv dt { color: var(--muted); font-size: 14px; padding-top: 1px; }
+  dl.cv dd { margin: 0; }
+  dl.cv dd small { color: var(--muted); display: block; font-size: 14px; }
+
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 640px) {
+    nav ul { gap: 14px; }
+    nav ul li.opt { display: none; }
+    header.hero { grid-template-columns: 1fr; padding-top: 40px; gap: 24px; }
+    .portrait { order: -1; text-align: left; }
+    .photo { width: 112px; height: 112px; }
+    .hero h1 { font-size: 34px; }
+    .themes { grid-template-columns: 1fr; }
+    dl.cv { grid-template-columns: 1fr; gap: 2px; }
+    dl.cv dd { margin-bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">J. C. Ebeltoft</a>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li class="opt"><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div>
+      <h1>Joakim Coleman Ebeltoft</h1>
+      <p class="role">Researcher · Department of Psychology, University of Oslo</p>
+      <p class="lead">I study how families pass on advantage. Using Norwegian population registers and family-based genetic designs, I ask how parental income and wealth shape children's education, economic outcomes and mental health across generations.</p>
+      <div class="links">
+        <a href="mailto:joakim.ebeltoft@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=WTN6zUMAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://www.sv.uio.no/psi/english/people/academic/joakimeb/">UiO profile</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img class="photo" src="photo.jpg" alt="Portrait of Joakim Coleman Ebeltoft">
+      <figcaption>Photo: Erik Engblad / UiO</figcaption>
+    </figure>
+  </header>
+
+  <section id="research">
+    <h2>Research</h2>
+    <p>I am a licensed psychologist turned inequality researcher. My work combines whole-population register data with sibling, twin and genomic designs to separate what families pass on through their resources from what they pass on through genes.</p>
+    <div class="themes">
+      <div class="theme"><strong>Wealth and child outcomes</strong><span>How parental and grandparental wealth relate to mental disorders and school performance, and whether wealth buffers families against shocks.</span></div>
+      <div class="theme"><strong>Genes, environment and SES</strong><span>The genetic and environmental composition of income, education and occupation, and how children's genes shape their parents' outcomes.</span></div>
+      <div class="theme"><strong>Inequality across generations</strong><span>Intergenerational and multigenerational transmission of socioeconomic status and mental health in Norway.</span></div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+
+    <h3>Peer-reviewed</h3>
+    <ol class="pubs">
+      <li>
+        <a class="pub-title" href="https://doi.org/10.1016/j.lanepe.2025.101567">Parental wealth and mental disorders in Norway (2006–2023): a nationwide registry-based study of 1.4 million young people</a>
+        <span class="pub-meta"><span class="me">Ebeltoft, J. C.</span>, et al. (2026). <em>The Lancet Regional Health – Europe</em>, 62, 101567.</span>
+      </li>
+      <li>
+        <a class="pub-title" href="https://doi.org/10.1038/s41467-025-58961-6">The genetic and environmental composition of socioeconomic status in Norway</a>
+        <span class="pub-meta"><span class="me">Ebeltoft, J. C.</span>, et al. (2025). <em>Nature Communications</em>, 16, 4461.</span>
+        <span class="tag">Publication Prize 2025</span>
+      </li>
+      <li>
+        <a class="pub-title" href="https://doi.org/10.1111/jcpp.70111">Multivariate maternal effects across the internalizing–externalizing spectrum in childhood</a>
+        <span class="pub-meta">Eilertsen, E. M., …, <span class="me">Ebeltoft, J. C.</span>, et al. (2026). <em>Journal of Child Psychology and Psychiatry</em>.</span>
+      </li>
+      <li>
+        <a class="pub-title" href="https://doi.org/10.1038/s41588-025-02391-z">Genetic associations with educational fields</a>
+        <span class="pub-meta">Cheesman, R., …, <span class="me">Ebeltoft, J. C.</span>, et al. (2025). <em>Nature Genetics</em>, 57, 2997–3006.</span>
+      </li>
+      <li>
+        <a class="pub-title" href="https://doi.org/10.1038/s41562-025-02319-x">The nature of the relation between mental well-being and ill-being</a>
+        <span class="pub-meta">Tamnes, C. K., …, <span class="me">Ebeltoft, J. C.</span>, et al. (2025). <em>Nature Human Behaviour</em>, 9, 2431–2440.</span>
+      </li>
+    </ol>
+
+    <h3>Working papers</h3>
+    <ol class="pubs">
+      <li>
+        <a class="pub-title" href="https://dx.doi.org/10.2139/ssrn.5225447">Nature, nurture, and socioeconomic outcomes</a>
+        <span class="pub-meta">Markel, G., …, <span class="me">Ebeltoft, J. C.</span>, et al. Conditionally accepted, <em>American Economic Review: Insights</em>.</span>
+      </li>
+      <li>
+        <a class="pub-title" href="https://osf.io/preprints/socarxiv/c29ya_v1">Do children's genetic differences change their parents' economic outcomes? Insights from Norway</a>
+        <span class="pub-meta"><span class="me">Ebeltoft, J. C.</span>, et al. Under review, <em>PNAS</em>.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="cv">
+    <h2>Background</h2>
+    <dl class="cv">
+      <dt>2023–2026</dt><dd>PhD in Psychology, University of Oslo (defended 11 August 2026)<small>Dissecting intergenerational patterns of socioeconomic status and mental disorders in Norway</small></dd>
+      <dt>2024</dt><dd>Visiting researcher, MRC Integrative Epidemiology Unit, University of Bristol</dd>
+      <dt>2024</dt><dd>Visiting researcher, European University Institute, Florence</dd>
+      <dt>2021–2022</dt><dd>Psychologist, child protection and family therapy (MST-CAN), Bærum Municipality</dd>
+      <dt>2015–2022</dt><dd>Co-founder and board chair, <a href="https://pofu.no/">POFU</a><small>National mental health education NGO reaching about 10% of Norwegian ninth graders each year</small></dd>
+      <dt>2015–2021</dt><dd>Professional degree in psychology (Cand. Psychol.), University of Oslo</dd>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Department of Psychology, University of Oslo<br>
+    <a href="mailto:joakim.ebeltoft@gmail.com">joakim.ebeltoft@gmail.com</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Joakim Coleman Ebeltoft</div>
+</footer>
+
+</body>
+</html>
